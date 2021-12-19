@@ -1,0 +1,13 @@
+.container-fluid{
+    background-color: rgb(116, 101, 73);
+    
+}
+
+img{
+    width: 10%;
+    height: 7%;
+}
+
+.navbar-light .navbar-brand {
+    color: white;
+}
