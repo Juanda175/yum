@@ -1,22 +1,27 @@
 import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import Menu from './component/Menu'
+import "bootstrap/dist/css/bootstrap.min.css";
+import Menu from './component/menu/Menu';
+import { ItemListContainer } from './component/ItemListContainer/ItemListContainer';
+
+
+
 
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const greeting = 'Bienvenidos a YUM'
 
   return (
     <div className="App">
       <header className="App-header">
-        <Menu />
-      
+    <Menu />
+        <ItemListContainer greeting={greeting} />
       </header>
       
     </div>
+    
     
   )
 }

@@ -1,0 +1,21 @@
+
+.saludogree{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    height: 100vh;
+    width: 100vw;
+}
+
+.saludogree h1{
+color: pink;
+}
+
+.saludogree img{
+    width: 20vw;
+    height: 50vh;
+    margin: 5%;
+    padding: 1%;
+    border: solid 5px green;
+}
