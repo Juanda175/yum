@@ -2,6 +2,7 @@ import { useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import Menu from './component/menu/Menu';
 import { ItemListContainer } from './component/ItemListContainer/ItemListContainer';
+import Contador from './component/contador/Contador';
 
 
 
@@ -18,6 +19,7 @@ function App() {
       <header className="App-header">
     <Menu />
         <ItemListContainer greeting={greeting} />
+        <Contador min={1} max={20} />
       </header>
       
     </div>
