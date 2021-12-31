@@ -11,16 +11,33 @@ const sumar = () => {
     if (contador < max) {
         setcontador (prev => prev + 1)
     }else{
-        alert('No hay mas stock')
+        swal({title: 'No hay mas stock',
+            icon: 'warning',
+            button: "volver",
+    })
+    }
+}
+
+const restar = () => {
+    if (contador > min){
+        setcontador(prev => prev - 1)
+    }
+    else{
+        swal({ 
+            title:'Este es el minimo de compra',
+            icon: 'warning',
+            button: 'volver',
+        })
+            
     }
 }
 
 
     return (
         <div className='contador'>
-            <button id='but'>+</button>
+            <button id='but'onClick={restar} >-</button>
             <h1>{contador}</h1>
-            <button id='but'>-</button>
+            <button id='but'onClick={sumar}>+</button>
         </div>
     )
 }
