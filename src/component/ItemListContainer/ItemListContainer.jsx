@@ -1,13 +1,36 @@
-import React from 'react';
-import './Item.css';
-import logo from './logo.jpeg' 
+import React, { useEffect, useState } from 'react';
+import { prod } from '../../../productos';
+import ItemList from '../ItemList/ItemList';
 
+const ItemListContainer = ({ saludo }) => {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-export const ItemListContainer = ({greeting}) => {
+    useEffect(() => {
+        prod
+            .then((respuesta) => {
+                setData(respuesta);
+            })
+            .catch((error) => {
+                console.error(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, []);
+
     return (
-        <div className='saludogree'>
-            <h1>{greeting}</h1>
-            <img src={logo} alt="logo" />
+        <div>
+            {loading ? (
+                <h3>Loading...</h3>
+            ) : (
+                <div>
+                    <h2 style={{ textAlign: 'center' }}>{saludo}</h2>
+                    <ItemList productos={data} />
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};
+
+export default ItemListContainer;
