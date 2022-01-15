@@ -5,7 +5,7 @@ export const productos = [
         precio: 500,
         cant: 100,
         stock: 50,
-        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/v1641385025/imagenes%20yum/01_7_iiooav.jpg',
+        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/c_scale,w_250/v1641385025/imagenes%20yum/01_7_iiooav.jpg',
            },
     {
         id: '2',
@@ -13,7 +13,7 @@ export const productos = [
         precio: 400,
         cant: 100,
         stock: 50,
-        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/v1641385025/imagenes%20yum/01_2_rthbpl.jpg',
+        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/c_scale,h_250,w_250/v1641385025/imagenes%20yum/01_2_rthbpl.jpg',
       },
     {
         id: '3',
@@ -21,7 +21,7 @@ export const productos = [
         precio: 450,
         cant: 500,
         stock: 50,
-        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/v1641385025/imagenes%20yum/01_3_ocbzjg.jpg',
+        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/c_scale,h_250,w_250/v1641385025/imagenes%20yum/01_3_ocbzjg.jpg',
            },
     {
         id: '4',
@@ -29,7 +29,7 @@ export const productos = [
         precio: 150,
         cant: 1,
         stock: 50,
-        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/v1641385025/imagenes%20yum/01_6_rlymoz.jpg',
+        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/c_scale,h_250,w_250/v1641385025/imagenes%20yum/01_6_rlymoz.jpg',
         
     },
     {
@@ -38,7 +38,7 @@ export const productos = [
         precio: 400,
         cant: 100,
         stock: 50,
-        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/v1641385025/imagenes%20yum/01_1_hzrn94.jpg',
+        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/c_scale,h_250,w_250/v1641385025/imagenes%20yum/01_1_hzrn94.jpg',
         
     },
     {
@@ -47,7 +47,7 @@ export const productos = [
         precio: 350,
         cant: 500,
         stock: 50,
-        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/v1641385025/imagenes%20yum/01_5_o9c9gg.jpg',
+        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/c_scale,h_250,w_250/v1641385025/imagenes%20yum/01_5_o9c9gg.jpg',
         
     },
     {
@@ -56,7 +56,7 @@ export const productos = [
         precio: 400,
         cant: 100,
         stock: 50,
-        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/v1641385025/imagenes%20yum/01_4_asxn2x.jpg',
+        img: 'https://res.cloudinary.com/dm3reycl8/image/upload/c_scale,h_250,w_250/v1641385025/imagenes%20yum/01_4_asxn2x.jpg',
         
     },
 ];

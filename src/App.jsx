@@ -5,11 +5,7 @@ import Menu from './component/menu/Menu';
 import Contador from './component/contador/Contador';
 import swal from 'sweetalert';
 import ItemListContainer from './component/ItemListContainer/ItemListContainer';
-
-
-
-
-
+import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
   
@@ -20,6 +16,7 @@ function App() {
       <header className="App-header">
     <Menu />
         <ItemListContainer />
+        <ItemDetailContainer />
         <Contador min={1} max={5} />
       </header>
       
