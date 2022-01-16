@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import { Navbar, Nav } from 'react-bootstrap';
 import { BsCartPlus} from  'react-icons/bs';
 import './menu.css'
+import { Link } from 'react-router-dom'
 
 function Menu () {
   return (
@@ -11,10 +12,14 @@ function Menu () {
         <Container>
           <Navbar.Brand href="#home">YUM</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Link to='/'>
+            Home
+            </Link>
             <Nav.Link href="#features">Ofertas</Nav.Link>
             <Nav.Link href="#pricing">Nostros</Nav.Link>
-            <a href="#"><BsCartPlus /></a>
+            <Link to='/cart'>
+            <BsCartPlus />
+            </Link>
           </Nav>
         </Container>
       </Navbar>

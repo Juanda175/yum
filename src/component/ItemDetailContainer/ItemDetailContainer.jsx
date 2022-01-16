@@ -9,7 +9,7 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     getFetch
-    .then((resp) => setprod(resp.find((prod) => prod.id === "1")));
+    .then((resp) => setprod(resp.find((prod) => prod.id === "5")));
   }, []);
 
   console.dir(yumprod);

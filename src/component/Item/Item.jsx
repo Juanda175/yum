@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Item.css';
 
-const Item = ({ name, precio, cant, stock, img }) => {
+const Item = ({ id, name, precio, cant, stock, img }) => {
     return (
         <div className="card">
         <div>
@@ -11,11 +12,14 @@ const Item = ({ name, precio, cant, stock, img }) => {
             <h3>Stock: {stock}</h3>
             <img src={img} alt={name} />
         </div>
-        <div className='card-footer'>
+        <div className="card-footer">
+            {/* <Link to={'/detalle/${yumprod.id}'}> */}
+            <Link to={'/detalle'}>
         <button type="button" class="btn btn-primary btn-lg">Large button</button>
+        </Link>
         </div>
         </div>
     );
-};
+}
 
 export default Item;
