@@ -10,13 +10,30 @@ function Menu () {
     <div className="navbar-cart">
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">YUM</Navbar.Brand>
+          <Navbar.Brand href="#home">HOMER RESTO-BAR</Navbar.Brand>
           <Nav className="me-auto">
             <Link to='/'>
             Home
             </Link>
-            <Nav.Link href="#features">Ofertas</Nav.Link>
-            <Nav.Link href="#pricing">Nostros</Nav.Link>
+            <Link to='/categoria/pizza'>
+            Pizzas
+            </Link>
+            <Link to='/categoria/empanada'>
+            Empanadas
+            </Link>
+            <Link to='/categoria/minuta'>
+            Minutas
+            </Link>
+            <Link to='/categoria/agua'>
+            Aguas Y jugos
+            </Link>
+            <Link to='/categoria/cervezas'>
+            Cervezas
+            </Link>
+            <Link to='/categoria/vino'>
+            Vinos
+            </Link>
+            
             <Link to='/cart'>
             <BsCartPlus />
             </Link>

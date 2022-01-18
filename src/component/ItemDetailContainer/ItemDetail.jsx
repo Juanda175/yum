@@ -3,8 +3,11 @@
 const ItemDetail = ({productos}) => {
     return (
         <div>
-            {productos.id}
+            
+            {/* {productos.id} */}
             <img src={productos.img} />
+            {productos.categoria}
+
         </div>
     )
 }

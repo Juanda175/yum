@@ -10,3 +10,9 @@
     flex-direction: row;
     justify-content: end;
 }
+
+.me-auto a{
+    padding: 1%;
+    color: blanchedalmond;
+    text-decoration: none;
+}
