@@ -1,10 +1,10 @@
 
 
-const ItemDetail = ({yumprod}) => {
+const ItemDetail = ({productos}) => {
     return (
         <div>
-            {yumprod.id}
-            <img src={yumprod.foto} />
+            {productos.id}
+            <img src={productos.img} />
         </div>
     )
 }

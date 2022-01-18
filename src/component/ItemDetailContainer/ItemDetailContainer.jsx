@@ -1,22 +1,24 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getFetch } from "../../../helpers/mock";
 import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {
-  const [yumprod, setprod] = useState({})
-
+  const [productos, setprod] = useState({})
+  const{idDetalle}=useParams()
   useEffect(() => {
     getFetch
-    .then((resp) => setprod(resp.find((prod) => prod.id === "5")));
-  }, []);
+    .then((resp) => setprod(resp.find((prod) => prod.id === parseInt(idDetalle))));
+  }, [idDetalle]);
 
-  console.dir(yumprod);
+  console.log(productos);
+  console.log(idDetalle)
 
   return (
         <div>
-            <ItemDetail yumprod={yumprod} />
+            <ItemDetail productos={productos} />
         </div>
   )
 };

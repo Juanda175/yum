@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { prod } from "../../../productos";
+import { getFetch } from "../../../helpers/mock";
+
 import ItemList from "../ItemList/ItemList";
 import "./ItemListContainer.css";
 
@@ -8,7 +9,7 @@ const ItemListContainer = ({ saludo }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    prod
+    getFetch
       .then((respuesta) => {
         setData(respuesta);
       })
@@ -19,7 +20,7 @@ const ItemListContainer = ({ saludo }) => {
         setLoading(false);
       });
   }, []);
-
+console.log(data)
   return (
     <div>
       {loading ? (
@@ -27,7 +28,7 @@ const ItemListContainer = ({ saludo }) => {
       ) : (
         <div className="prodBody">
           <h2 style={{ textAlign: "center" }}>{saludo}</h2>
-          <ItemList productos={data} />
+          <ItemList data={data} />
         </div>
       )}
     </div>

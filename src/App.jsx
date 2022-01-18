@@ -21,7 +21,7 @@ function App() {
 
           <Routes>
             <Route exact path='/' element={<ItemListContainer />} />
-            <Route exact path='/detalle' element={<ItemDetailContainer />} />
+            <Route exact path='/detalle/:idDetalle' element={<ItemDetailContainer />} />
             <Route exact path='/cantidad' element={<Contador min={1} max={5} />} />
 
             <Route exact path='/cart' element={<Cart />} />
