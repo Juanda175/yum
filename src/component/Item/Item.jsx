@@ -6,14 +6,14 @@ const Item = ({ producto }) => {
     const {id, name, precio, tipo, img, categoria} = producto
     return (
         <div className="card">
-        <div>
+        <div id='cardcont'>
            
-            <h2>{name}</h2>
-            <h3>Precio: {precio}</h3>
-            <h4>tipo: {tipo}</h4>
-            <h5>familia: {categoria}</h5>
             <img src={img} alt={name} />
-        </div>
+            <h2>{name}</h2>
+            <h3>$ {precio}</h3>
+            
+            <h5>{categoria}</h5>
+            </div>
         <div className="card-footer">
             
             <Link to={`/detalle/${id}`}>

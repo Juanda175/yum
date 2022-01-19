@@ -1,9 +1,11 @@
 .cardProd{
+    background-color: rgb(53, 52, 51);
     display: flex;
-    flex-direction:column;
-    align-items: center;
+    flex-direction:row;
+    flex-wrap: wrap;
+
     
-   width: 100vw;
+   width: 100%;
    height: 100%;
     
 }
