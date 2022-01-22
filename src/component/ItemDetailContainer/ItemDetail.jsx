@@ -1,16 +1,18 @@
 import './ItemDetail.css'
 import { Card, Button } from 'react-bootstrap';
 import Contador from '../contador/Contador';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({productos}) => {
 
-const onAdd = () => {
-    
+    const [show, setShow] = useState(true)
+
+
+const onAdd = (contador) => {
+    setShow(false)
+    sumarAlCarrito({ ...productos, cantidad: contador})
 }
-
-
-
-
     return (
         <div className='detallado'>
             
@@ -31,8 +33,12 @@ const onAdd = () => {
       <h3 style={{ textAlign:'right',padding:'2%',color:'green' }}>$ {productos.precio}</h3>
     </Card.Text>
   </Card.Body>
-    <Button variant="primary" style={{backgroundColor:'#1EA896', width:'100%', height:'10%'}}>Agregar al carrito</Button>
-    <Contador min={1} max={5} />
+   
+    { show ? <Contador onAdd={onAdd} min={1} max={5} /> : 
+    <div>
+        <Link to='/Cart'><button>Ir al Carrito</button></Link>
+        <Link to='/'><button>Seguir comprando</button></Link>
+    </div>}
 </Card>
 
 </div>

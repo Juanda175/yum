@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './contador.css'
 
-const Contador = ({min, max}) => {
+const Contador = ({min, max, onAdd}) => {
 
 
 
@@ -31,6 +31,7 @@ const restar = () => {
             <button id='but'onClick={restar} >-</button>
             <h1>{contador}</h1>
             <button id='but'onClick={sumar}>+</button>
+            <button onClick={() => onAdd(contador)}>Agregar al carrito</button>
         </div>
     )
 }
