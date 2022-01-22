@@ -1,7 +1,16 @@
 import './ItemDetail.css'
 import { Card, Button } from 'react-bootstrap';
+import Contador from '../contador/Contador';
 
 const ItemDetail = ({productos}) => {
+
+const onAdd = () => {
+    
+}
+
+
+
+
     return (
         <div className='detallado'>
             
@@ -19,9 +28,11 @@ const ItemDetail = ({productos}) => {
    
     <Card.Text>
       <h3 style={{ textAlign:'justify', paddingTop:'3%'}}>{productos.detalle}</h3>
+      <h3 style={{ textAlign:'right',padding:'2%',color:'green' }}>$ {productos.precio}</h3>
     </Card.Text>
   </Card.Body>
-    <Button variant="primary">Agregar al carrito</Button>
+    <Button variant="primary" style={{backgroundColor:'#1EA896', width:'100%', height:'10%'}}>Agregar al carrito</Button>
+    <Contador min={1} max={5} />
 </Card>
 
 </div>
@@ -33,6 +44,4 @@ export default ItemDetail
 
 
 
-{/* //  {productos.id} 
-// <img src={productos.img} />
-// {productos.categoria} */}
+

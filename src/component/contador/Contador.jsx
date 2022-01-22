@@ -11,10 +11,7 @@ const sumar = () => {
     if (contador < max) {
         setcontador (prev => prev + 1)
     }else{
-        swal({title: 'No hay mas stock',
-            icon: 'warning',
-            button: "volver",
-    })
+        alert('No hay mas stock')
     }
 }
 
@@ -23,11 +20,7 @@ const restar = () => {
         setcontador(prev => prev - 1)
     }
     else{
-        swal({ 
-            title:'Este es el minimo de compra',
-            icon: 'warning',
-            button: 'volver',
-        })
+        alert('Este es el minimo de compra')
             
     }
 }
