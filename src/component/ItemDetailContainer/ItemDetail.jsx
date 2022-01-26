@@ -34,10 +34,11 @@ const onAdd = (contador) => {
     </Card.Text>
   </Card.Body>
    
-    { show ? <Contador onAdd={onAdd} min={1} max={5} /> : 
+    { show ? <Contador onAdd={onAdd} min={0} max={10} /> : 
     <div>
         <Link to='/Cart'><button>Ir al Carrito</button></Link>
         <Link to='/'><button>Seguir comprando</button></Link>
+        <Link to='/'><button>Cancelar</button></Link>
     </div>}
 </Card>
 
