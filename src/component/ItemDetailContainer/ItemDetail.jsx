@@ -3,15 +3,20 @@ import { Card, Button } from 'react-bootstrap';
 import Contador from '../contador/Contador';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react'; 
+import { cartContext } from '../../context/cartContext';
 
 const ItemDetail = ({productos}) => {
 
+   const { cartList, agregarAlCarrito } = useContext(cartContext)
+
+  console.log(cartList)
     const [show, setShow] = useState(true)
 
 
 const onAdd = (contador) => {
     setShow(false)
-    sumarAlCarrito({ ...productos, cantidad: contador})
+    agregarAlCarrito( { ...productos, cantidad: contador} )
 }
     return (
         <div className='detallado'>
