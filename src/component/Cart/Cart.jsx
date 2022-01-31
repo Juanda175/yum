@@ -3,7 +3,7 @@ import { cartContext } from '../../context/cartContext';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
-    const { cart, deleteprod, vaciarCarrito, total } = useContext(cartContext);
+    const { cart, deleteProd, vaciarCarrito, total } = useContext(cartContext);
     return (
         <>
             {cart.length === 0 ? (
@@ -25,26 +25,30 @@ const Cart = () => {
                 <>
                     {cart?.map((productos) => (
                         <div key={productos.id} className="containerCart">
-                            <img src={productos.img} alt={productos.name} style={{ width:'10%'}} />
+                            <img src={productos.img} style={{ width:'10%'}} alt={productos.name} />
                             <div
                                 style={{
+                                    
+                                    background:'blue',
                                     display: 'flex',
+                                    flexDirection: 'row',
                                     alignItems: 'center',
                                     justifyContent: 'space-between',
-                                    width: '300px',
+                                    width: '100%',
                                 }}
-                            >
+                                >
                                 <h3>{productos.name}</h3>
                                 <h3>${productos.precio}</h3>
-                                <h3>Cantidad: {productos.cant}</h3>
-                                <button onClick={() => deleteprod(productos.id)}>
-                                   borrar
+                                <h3>Cantidad: {productos.contador}</h3>
+                                <button onClick={() => deleteProd(productos.id)}>
+                                Quitar
                                 </button>
                             </div>
                         </div>
+                    
                     ))}
                     <button onClick={vaciarCarrito}>Vaciar Carrito</button>
-                    <h3>{total()}</h3>
+                    <h3 style={{color:'blue'}}>total : {total()}</h3>
                 </>
             )}
         </>
@@ -52,3 +56,6 @@ const Cart = () => {
 };
 
 export default Cart;
+
+
+

@@ -1,6 +1,6 @@
 
 
-// import { useState, useContext, createContext } from 'react';
+
 
 import React, { createContext } from 'react';
 import { useState } from 'react';
@@ -11,59 +11,44 @@ export const cartContext = createContext();
 export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
-    const agregarAlCarrito = (item, cantidad) => {
-        if (isOnCart(item.id)) {
-            sumarCantidad(item, cantidad);
+    const agregarAlCarrito = (items, contador) => {
+        if (isOnCart(items.id)) {
+            sumarCantidad(items, contador);
         } else {
-            setCart([...cart, { ...item, cantidad }]);
+            setCart([...cart, { ...items, contador }]);
         }
+        
     };
 
-    /*     const isOnCart = (id) => {
-        const carrito = cart.findIndex((prod) => prod.id === id);
-        console.log(carrito);
-        return carrito;
-    }; */
+   
     const isOnCart = (id) => {
         const carrito = cart.some((prod) => prod.id === id);
 
         return carrito;
     };
 
-    const sumarCantidad = (item, cantidad) => {
+    const sumarCantidad = (items, contador) => {
         const copia = [...cart];
-        copia.forEach((producto) => {
-            producto.id === item.id && (producto.cantidad += cantidad);
+        copia.forEach((productos) => {
+            productos.id === items.id && (productos.contador += contador);
         });
     };
 
     const deleteProd = (id) => {
-        setCart(cart.filter((producto) => producto.id !== id));
-        /* const itemFiltrado = cart.findIndex((prod) => prod.id === id);
-        cart.splice(itemFiltrado, 1);
-        setCart([...cart]); */
+        setCart(cart.filter((productos) => productos.id !== id));
+        
     };
 
     const vaciarCarrito = () => {
         setCart([]);
     };
 
-    /*     const total = () => {
-        const totalCarrito = cart.reduce(
-            (prev, curr) => prev + curr.price * curr.cantidad,
-            0
-        );
-
-        return totalCarrito;
-    }; */
-
-    //otra forma
     const total = () => {
-        let count = 0;
-        cart.forEach((producto) => {
-            count += producto.price * producto.cantidad;
+        let contador = 0;
+        cart.forEach((productos) => {
+           contador += productos.precio * productos.contador;
         });
-        return count;
+        return contador;
     };
 
     return (
@@ -72,7 +57,8 @@ export const CartContextProvider = ({ children }) => {
             agregarAlCarrito, 
             deleteProd, 
             vaciarCarrito, 
-            total 
+            total,
+            sumarCantidad
         }} >
             {children}
         </cartContext.Provider>
