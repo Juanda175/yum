@@ -1,29 +1,28 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import { getDoc, getFirestore, doc } from "firebase/firestore";
+import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
-import { getFetch } from "../../../helpers/mock";
-import ItemDetail from "./ItemDetail";
+
+import ItemDetail from "../ItemDetailContainer/ItemDetail";
 
 const ItemDetailContainer = () => {
+  const [product, setprod] = useState({});
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
 
-  const [productos, setprod] = useState({})
-
-  const{idDetalle}=useParams()
-  
   useEffect(() => {
-    getFetch
-    .then((resp) => setprod(resp.find((prod) => prod.id === parseInt(idDetalle))));
-  }, [idDetalle]);
-
-  console.log(productos);
-  console.log(idDetalle)
+    const db = getFirestore();
+    const queryProd = doc(db, 'items', id);
+    getDoc(queryProd).then((resp) => {
+      setprod({ id: resp.id, ...resp.data() });
+    });
+  setLoading(false);
+  }, [id]);  
 
   return (
-        <div>
-            <ItemDetail productos={productos} />
-        </div>
-  )
+    <div>      
+      {loading ? <h3>Loading...</h3> : <ItemDetail productos={product}  />}
+    </div>
+  );
 };
 
 export default ItemDetailContainer;

@@ -18,7 +18,7 @@ const sumar = () => {
 
 const restar = () => {
     if (contador > min){
-        setcontador(prev => prev - 0)
+        setcontador(prev => prev - 1)
     }
     else{
         alert('Nada Para Agregar al carrito')

@@ -1,18 +1,17 @@
-import "./ItemDetail.css";
-import { Card, Button } from "react-bootstrap";
+import React, { useContext, useState } from 'react';
+import { Card } from "react-bootstrap";
 import Contador from "../contador/Contador";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
+import "./ItemDetail.css";
 
 const ItemDetail = ({ productos }) => {
   const [show, setShow] = useState(true);
   const { agregarAlCarrito } = useContext(cartContext);
 
   const onAdd = (contador) => {
+    agregarAlCarrito(productos, contador);
     setShow(false);
-    agregarAlCarrito( productos, contador );
   };
   return (
     <div className="detallado">

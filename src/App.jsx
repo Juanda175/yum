@@ -16,19 +16,17 @@ function App() {
 
   return (
       <CartContextProvider>
-    <div className="App">
-      <header className="App-header">
+    
         <BrowserRouter>
           <Menu />
           <Routes>
             <Route exact path='/' element={<ItemListContainer />} />
             <Route exact path='/categoria/:categoriaId' element={<ItemListContainer />} />
-            <Route exact path='/detalle/:idDetalle' element={<ItemDetailContainer />} />
+            <Route exact path='/detalle/:id' element={<ItemDetailContainer />} />
             <Route exact path='/cart' element={<Cart />} />
           </Routes>
         </BrowserRouter>
-      </header>
-    </div>
+      
     </CartContextProvider>
   );
 }

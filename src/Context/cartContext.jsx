@@ -1,21 +1,16 @@
-
-
-
-
 import React, { createContext } from 'react';
 import { useState } from 'react';
-//------------------------------------------------------------------------------------------------------------------------------------------
 
 export const cartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
-    const agregarAlCarrito = (items, contador) => {
-        if (isOnCart(items.id)) {
-            sumarCantidad(items, contador);
+    const agregarAlCarrito = (item, contador) => {
+        if (isOnCart(item.id)) {
+            sumarCantidad(item, contador);
         } else {
-            setCart([...cart, { ...items, contador }]);
+            setCart([...cart, { ...item, contador }]);
         }
         
     };
@@ -27,10 +22,10 @@ export const CartContextProvider = ({ children }) => {
         return carrito;
     };
 
-    const sumarCantidad = (items, contador) => {
+    const sumarCantidad = (item, contador) => {
         const copia = [...cart];
         copia.forEach((productos) => {
-            productos.id === items.id && (productos.contador += contador);
+            productos.id === item.id && (productos.contador += contador);
         });
     };
 
@@ -66,6 +61,35 @@ export const CartContextProvider = ({ children }) => {
 };
 
 
+const Cart = () => {
+    const { cartList, vaciarCarrito, precioTotal } = useCartContext ()
+
+    const realizarCompra = () => {
+        let orden = {}
+
+        orden.buyer = {nombre: 'juan', email: 'gonzlezjuandaniel@gmail.com', tel: '2995092029'}
+        orden.total = precioTotal();
+
+        orden.items = cartList.map(cartItem => {
+            const id = cartItem.id;
+            const nombre = cartItem.title;
+            const precio = cartItem.precio * cartItem.cantidad;
+
+            return {id, nombre, precio}
+        })
+
+        console.log(orden)
+    }
+
+    return (
+        <div>
+            {cartList.map(prod => <li key={prod.id}>{prod.title} - cant: {prod.cantidad}</li>)}
+            <button onClick={vaciarCarrito}> vaciar Carrito </button>
+            <button onClick={realizarCompra}> Generar Orden </button>
+        </div>
+    )
+}
+
 
 
 
@@ -97,7 +121,7 @@ export const CartContextProvider = ({ children }) => {
 //     //estados y funciones globales-- recordando de la clase
 //     const [cartList, setCarlist] = useState([])
 
-//     function agregarAlCarrito(items) {
+//     function agregarAlCarrito(item) {
 //         setCarlist( [...cartList, items] )
 //     }
 

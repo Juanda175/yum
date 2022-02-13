@@ -16,7 +16,7 @@ const Cart = () => {
                         minHeight: '70vh',
                     }}
                 >
-                    <h2>Aún no agregaste productos al carrito</h2>
+                    <h2 style={{color:'black'}}>CARRITO VACIO, ¡¡¡COMPRA ALGO!!!</h2>
                     <Link to="/">
                         <button className="detail">Ir al catálogo</button>
                     </Link>
