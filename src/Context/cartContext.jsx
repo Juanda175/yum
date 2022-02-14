@@ -61,49 +61,6 @@ export const CartContextProvider = ({ children }) => {
 };
 
 
-const Cart = () => {
-    const { cartList, vaciarCarrito, precioTotal } = useCartContext ()
-
-    const realizarCompra = () => {
-        let orden = {}
-
-        orden.buyer = {nombre: 'juan', email: 'gonzlezjuandaniel@gmail.com', tel: '2995092029'}
-        orden.total = precioTotal();
-
-        orden.items = cartList.map(cartItem => {
-            const id = cartItem.id;
-            const nombre = cartItem.title;
-            const precio = cartItem.precio * cartItem.cantidad;
-
-            return {id, nombre, precio}
-        })
-
-        console.log(orden)
-    }
-
-    return (
-        <div>
-            {cartList.map(prod => <li key={prod.id}>{prod.title} - cant: {prod.cantidad}</li>)}
-            <button onClick={vaciarCarrito}> vaciar Carrito </button>
-            <button onClick={realizarCompra}> Generar Orden </button>
-        </div>
-    )
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //-------------------------------------------------------------------------------------------------------------------------------------------
 
 
