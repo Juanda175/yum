@@ -1,62 +1,11 @@
 import React, { useContext } from 'react';
 import { cartContext } from '../../context/cartContext';
-import { Link } from 'react-router-dom';
 import { useState } from "react"
-import { addDoc, collection, doc, documentId, getDocs, getFirestore, query, updateDoc, where, writeBatch } from 'firebase/firestore';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import Resumen from "../../Resumen/Resumen"
+import './Cart.css';
 
-// const Cart = () => {
-//     const { cart, deleteProd, vaciarCarrito, total } = useContext(cartContext);
-//     return (
-//         <>
-//             {cart.length === 0 ? (
-//                 <div
-//                     style={{
-//                         display: 'flex',
-//                         flexDirection: 'column',
-//                         justifyContent: 'center',
-//                         alignItems: 'center',
-//                         minHeight: '70vh',
-//                     }}
-//                 >
-//                     <h2 style={{color:'black'}}>CARRITO VACIO, ¡¡¡COMPRA ALGO!!!</h2>
-//                     <Link to="/">
-//                         <button className="detail">Ir al catálogo</button>
-//                     </Link>
-//                 </div>
-//             ) : (
-//                 <>
-//                     {cart?.map((productos) => (
-//                         <div key={productos.id} className="containerCart">
-//                             <img src={productos.img} style={{ width:'10%'}} alt={productos.name} />
-//                             <div
-//                                 style={{
-                                    
-//                                     background:'blue',
-//                                     display: 'flex',
-//                                     flexDirection: 'row',
-//                                     alignItems: 'center',
-//                                     justifyContent: 'space-between',
-//                                     width: '100%',
-//                                 }}
-//                                 >
-//                                 <h3>{productos.name}</h3>
-//                                 <h3>${productos.precio}</h3>
-//                                 <h3>Cantidad: {productos.contador}</h3>
-//                                 <button onClick={() => deleteProd(productos.id)}>
-//                                 Quitar
-//                                 </button>
-//                             </div>
-//                         </div>
-                    
-//                     ))}
-//                     <button onClick={vaciarCarrito}>Vaciar Carrito</button>
-//                     <h3 style={{color:'blue'}}>total : {total()}</h3>
-//                 </>
-//             )}
-//         </>
-//     );
-// };
+
 
 const Cart = () => {
     const { cart, vaciarCarrito, total } = useContext(cartContext);
@@ -89,8 +38,11 @@ const Cart = () => {
         await addDoc(ordenCollection, orden)
         .then(resp => setIdOrden(resp.id))
         .catch(err => console.log(err))
+       
+       
+         batch.commit()
 
-        setCondicional(true)
+         setCondicional(true)
 
     } 
  
@@ -104,14 +56,21 @@ const Cart = () => {
      console.log(dataForm)
     
     return (
-        <div>  
+        <div className='bodycart'>  
+            
         {
             condicional  ? 
                 <Resumen idOrden={idOrden} />
             : 
                 <>
-                    {cart.map(prod => <li key={prod.id}>{prod.name} - cant: {prod.contador}</li>)}
+                <div className='itemsCarrito'>
+                    {/* key={prod.id} */}
+                    {cart.map(prod => <div className='itemcar'><img src={prod.img} style={{ width:'10%'}} alt='imagen' /><h4>{prod.name}</h4><h5>cant: {prod.contador}</h5> <h5>Precio $: {prod.precio}</h5></div>)
+                    }
                     <button onClick={vaciarCarrito}>Vaciar CArrito</button>
+                    <span style={{width:'100%'}}><h2>total : {total()}</h2></span>
+                    </div>
+                    <div className='formFin'>
                     <form 
                         onSubmit={realizarCompra} 
                         onChange={handleChange} 
@@ -139,7 +98,7 @@ const Cart = () => {
                         /><br/>
                         <button>Generar Orden</button>
                     </form>
-                    {/* <button onClick={realizarCompra}>Generar Orden</button> */}
+                    </div>
                 </>
 
         }          

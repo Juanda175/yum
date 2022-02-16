@@ -1,16 +1,42 @@
 
 .bodycart{
+    background-image:url("../../../img/fond_cart.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100vh;
-    background-color: blueviolet;
+    
+}
+
+.itemsCarrito{
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+    height: 100%;
+    width: 100%;
+    margin-bottom: 5% ;
 }
 
 
 h2 {
     
     font-size: 5em;
+    
+}
+
+.itemcar{
+padding: 2%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    flex-wrap: wrap;
     
 }
